@@ -6,10 +6,19 @@ import org.springframework.web.bind.annotation.RestController;
 import com.question.question_micro.Questions;
 import com.question.question_micro.services.QuestionService;
 
+import jakarta.websocket.server.PathParam;
+
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.RequestEntity;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+
+
 
 
 @RestController
@@ -20,9 +29,21 @@ public class QuestionController {
     QuestionService questionService;
 
     @GetMapping("allQuestion")
-    public List<Questions> getQuestions() {
+    public ResponseEntity<List<Questions>> getQuestions() {
         return questionService.getQuestions();
     }
+
+    @GetMapping("/category/{category}")
+    public List<Questions> getMethodName(@PathVariable String category) {
+        return questionService.getQuestionsCategory(category);
+    }
+
+    @PostMapping("/add")
+    public String addQuesiton(@RequestBody Questions question) {        
+        return questionService.addQuestion(question);
+    }
+    
+    
     
     
 }

@@ -20,5 +20,6 @@ public class Questions {
     private String optionFour;
     private String rightAnswer;
     private String difficultyLevel;
+    private String category;
     
 }

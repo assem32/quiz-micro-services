@@ -1,9 +1,13 @@
 package com.question.question_micro.dao;
 
+import java.util.List;
+
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import com.question.question_micro.Questions;
 
-public interface QuestionDao extends JpaRepository<Questions,Integer>{ //primary key type
+public interface QuestionDao extends JpaRepository<Questions,Integer>{//primary key type
+
+    List<Questions> findAllByCategory(String category); 
     
 }
