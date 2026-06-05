@@ -2,8 +2,9 @@ package com.question.question_micro.controllers;
 
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import com.question.question_micro.QuestionService;
+
 import com.question.question_micro.Questions;
+import com.question.question_micro.services.QuestionService;
 
 import java.util.List;
 

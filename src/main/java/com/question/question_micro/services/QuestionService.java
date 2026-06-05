@@ -1,10 +1,11 @@
-package com.question.question_micro;
+package com.question.question_micro.services;
 
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.question.question_micro.Questions;
 import com.question.question_micro.dao.QuestionDao;
 
 @Service
@@ -14,8 +15,7 @@ public class QuestionService {
     QuestionDao questionDao;
 
     public List<Questions> getQuestions() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'getQuestions'");
+        return questionDao.findAll();
     }
     
 }
