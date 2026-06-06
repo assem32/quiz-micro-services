@@ -14,6 +14,7 @@ import com.question.question_micro.dao.QuizDao;
 import com.question.question_micro.models.QuestionDto;
 import com.question.question_micro.models.Questions;
 import com.question.question_micro.models.Quiz;
+import com.question.question_micro.models.Responses;
 
 @Service
 public class QuizService {
@@ -51,5 +52,22 @@ public class QuizService {
             questionUser.add(questionDto);
         }
         return new ResponseEntity<>(questionUser,HttpStatus.OK);
+    }
+
+    public ResponseEntity<Integer> submit(int id, List<Responses> responses) {
+        Optional<Quiz> quiz = quizDao.findById(id);
+        List<Questions> questions = quiz.get().getQuestions();
+        int score=0;
+        for (Responses response : responses) {
+            for (Questions question : questions) {
+                if (question.getId() == response.getId()) {
+                    if (response.getAnswer().equals(question.getRightAnswer())) {
+                        score++;
+                    }
+                    break;
+                }
+            }
+        }
+        return new ResponseEntity<>(score,HttpStatus.OK);
     }
 }
