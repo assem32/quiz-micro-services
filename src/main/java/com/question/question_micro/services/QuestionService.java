@@ -6,8 +6,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
-import com.question.question_micro.Questions;
+
 import com.question.question_micro.dao.QuestionDao;
+import com.question.question_micro.models.Questions;
 
 @Service
 public class QuestionService {

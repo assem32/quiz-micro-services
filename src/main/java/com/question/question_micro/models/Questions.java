@@ -1,4 +1,4 @@
-package com.question.question_micro;
+package com.question.question_micro.models;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
